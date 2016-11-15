@@ -5,8 +5,10 @@
  注：http://stackoverflow.com/questions/39157580/angular2webpack-how-should-i-output-html-file-with-templateurl
 
 ## package styleUrls 
- 1、install "raw-loader"。
- 2、webpack config file add loader { test:'/\.css$/',loader:'raw',include:'styleUrls file path' }。
+ 1、install "raw-loader" 
+
+ 2、webpack config file add loader { test:'/\.css$/',loader:'raw',include:'styleUrls file path' } 
+
 ## package other css
  1、install “css-loader style-loader”。
  2、webpack config file add loader { test:'/\.css$/',loaders: ['style-loader', 'css-loader'],include:'other css file path' }。
