@@ -23,3 +23,20 @@
  1、use webpack.optimize.UglifyJsPlugin() compress js file
 
  2、use webpack.optimize.CommonsChunkPlugin({name:['入口文件1',...],file:'输出文件，忽略则以name为输出文件的名字'}) ,提取公共文件
+
+##how to include Twitter Bootstrap 3 using webpack
+ 1、npm i --save jquery bootstarp
+
+ 2、import 'jquery';
+
+    import 'bootstrap/dist/js/bootstrap'
+ 3、new webpack.ProvidePlugin({   
+
+        jQuery: 'jquery',
+
+        $: 'jquery',
+
+        jquery: 'jquery'
+
+    })
+    
