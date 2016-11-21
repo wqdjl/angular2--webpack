@@ -44,7 +44,7 @@ let config = {
         ]
     },
     plugins: [
-        // new ExtractTextPlugin('[name].[hash].css'),
+        new ExtractTextPlugin('[name].[hash].css'),
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         }),
@@ -54,6 +54,11 @@ let config = {
             //filename:'build.[hash].js',
             minChunks:2
         }),
+        new webpack.ProvidePlugin({
+            $:'jquery',
+            jQuery:'jquery',
+            'window.jQuery':'jquery'
+        })
     ]
 
 };

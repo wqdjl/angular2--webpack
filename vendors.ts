@@ -5,5 +5,7 @@ import '@angular/platform-browser';
 import '@angular/platform-browser-dynamic';
 
 import 'rxjs';
- 
-import './src/assets/test.css';
+
+// import 'jquery';
+// import 'bootstrap/dist/js/bootstrap.js';
+import 'bootstrap/dist/css/bootstrap.css';
