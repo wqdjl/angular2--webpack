@@ -11,7 +11,8 @@ let config = {
     },
     output: {
         filename: '[name].[hash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        chunkFilename: 'chunk.[hash].js',
     },
     resolve: {
         extensions: ['', '.ts', '.js']
@@ -51,13 +52,13 @@ let config = {
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             name: ['app', 'vendors', 'polyfills'],
-            //filename:'build.[hash].js',
-            minChunks:2
+            //  filename:'chunk.[hash].js',
+            minChunks: 2
         }),
         new webpack.ProvidePlugin({
-            $:'jquery',
-            jQuery:'jquery',
-            'window.jQuery':'jquery'
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
         })
     ]
 
