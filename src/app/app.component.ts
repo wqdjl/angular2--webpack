@@ -9,10 +9,12 @@ import { Component } from '@angular/core';
     //providers:[]
 })
 export class AppComponent {
-    consturctor() {
-
+    constructor() {
+        console.log("process.env:"+process.env);
     };
-   
+    
+    
+
     // ngDoCheck() {
     //     console.log("ngDoCheck-detail");
     // };

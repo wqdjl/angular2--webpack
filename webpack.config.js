@@ -12,10 +12,10 @@ let config = {
     output: {
         filename: '[name].[hash].js',
         path: path.resolve(__dirname, 'dist'),
-        chunkFilename: 'chunk.[hash].js',
+
     },
     resolve: {
-        extensions: ['', '.ts', '.js']
+        extensions: ['', '.ts', '.js', '.css']
     },
     module: {
         loaders: [
@@ -29,13 +29,14 @@ let config = {
             },
             {
                 test: /\.css$/,
-                //loaders: ['raw-loader'],
-                loader: 'raw',
+                loaders: ['raw-loader', 'css-loader'],
+                //loader: ['raw'],
                 include: path.resolve(__dirname, 'src/app')
             },
             {
                 test: /\.css$/,
-                loaders: ['style-loader', 'css-loader'],
+                // loaders: ['style-loader', 'css-loader'],
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
                 exclude: path.resolve(__dirname, 'src/app')
             },
             {
@@ -45,16 +46,22 @@ let config = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('[name].[hash].css'),
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require('./dll/manifest.json'),
+        }),
+        new webpack.DefinePlugin({'process.env': JSON.stringify(true)}),
+        
+        new ExtractTextPlugin('style.[hash].css'),
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         }),
         new webpack.optimize.UglifyJsPlugin(),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['app', 'vendors', 'polyfills'],
-            //  filename:'chunk.[hash].js',
-            minChunks: 2
-        }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: 'common', //['app', 'vendors', 'polyfills'],
+        //     filename: '[name].[hash].js',
+        //     minChunks: 2
+        // }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
