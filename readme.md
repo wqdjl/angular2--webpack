@@ -36,7 +36,12 @@
  2、webpack config file add loader { test:'/\.css$/',loaders: ['style-loader', 'css-loader'],include:'other css file path' }
  
  注：include，exclude 目的是为了选择需要打包 的css文件所在的目录
-
+  
+## 打包并将css文件单独分离出来
+  use Extract-text-webpack-plugin.  link: http://npm.taobao.org/package/extract-text-webpack-plugin
+  
+  warning: loaders and plugin 要一起使用才会生效
+  
 ## 压缩js文件
  1、use webpack.optimize.UglifyJsPlugin() compress js file
 
@@ -78,12 +83,6 @@
    use webpack config options —— externals 
 
    eg. externals:{ 'jquery':'window.jQuery'} ;然后可以调用 var $=require(jquery);   
-
-    
-## 打包并将css文件单独分离出来
-  use Extract-text-webpack-plugin.  link: http://npm.taobao.org/package/extract-text-webpack-plugin
-  
-  warning: loaders and plugin 要一起使用才会生效
 
 ## es6代码打包成es2015
   use bebel 
