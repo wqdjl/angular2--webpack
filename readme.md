@@ -1,4 +1,4 @@
-#Learn webpack package
+#webpack package
 ##basic knowledge
 ###entry —— 入口文件配置
  1、单入口 entry:"***.js";
