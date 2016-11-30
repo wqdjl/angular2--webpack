@@ -16,12 +16,12 @@
 
 参考： https://segmentfault.com/a/1190000006863968
 
+## ts不支持require，需要安装‘ npm i --save-dev @types/node’
+
 ##打包输出模板文件
- 1、"templateUrl:'XXX.html'" change to "template:require('XXX.html')", 注：ts不支持require，需要安装‘ npm i --save-dev @types/node’,or template replace templateUrl;
+ 1、install loader “angular2-template-loader html-loader”. '.ts' loader change to "loaders: ['awesome-typescript-loader', 'angular2-template-loader']"
  
- 2、install loader “angular2-template-loader html-loader”. '.ts' loader change to "loaders: ['awesome-typescript-loader', 'angular2-template-loader']"
- 
- 3、use html-loader instead of raw loader .If you do not instead,it will be ok,but html file can not be compressed 
+ 2、use html-loader instead of raw loader .If you do not instead,it will be ok,but html file can not be compressed 
  
  注：http://stackoverflow.com/questions/39157580/angular2webpack-how-should-i-output-html-file-with-templateurl
 
