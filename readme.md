@@ -16,21 +16,6 @@
 
 参考： https://segmentfault.com/a/1190000006863968
 
-##打包公共文件
-  1、use plugin CommonChunkPlugin 
-  
-  2、new webpack.optimize.CommonChunkPlugin({
-
-      name:'',//这是公共代码的Chunk的名字
-
-      filename:'***',//可以固定文件名或者 [name].js(name是上面配置的属性)
-
-      minChunks:'number'//被重复加载的次数才纳入公共代码
-
-  })
-
-
-
 ##打包输出模板文件
  1、"templateUrl:'XXX.html'" change to "template:require('XXX.html')", 注：ts不支持require，需要安装‘ npm i --save-dev @types/node’,
 
@@ -139,15 +124,26 @@
         })
     }
 
-##webpack打包分生产测试开发环境，你的业务代码怎么同步知道？
+## webpack打包分生产测试开发环境，你的业务代码怎么同步知道？
   用webpack.DefinePlugin 配置node的全局进程process的env(进程的环境变量)，再在业务代码里面做出对应的判断
 
   new webpack.DefinePlugin({'process.env': JSON.stringify(true)})
 
   if (process.env) { // 做生产环境该做的事} else { // 做开发环境该做的事}
 
-## 使用DllPlugin、DllReferencePlugin提高打包效率
-  原理：提出第三方库使用 webpack 的DllPlugin单独打包，然后打包业务代码并用DllReferencePlugin关联第三方库
+## 使用CommonChunkPlugin打包公共文件
+  new webpack.optimize.CommonChunkPlugin({
+
+      name:'',//这是公共代码的Chunk的名字
+
+      filename:'***',//可以固定文件名或者 [name].js(name是上面配置的属性)
+
+      minChunks:'number'//被重复加载的次数才纳入公共代码
+
+  })
+
+## 使用DllPlugin、DllReferencePlugin打包公共文件提高打包效率
+  原理：第三方库使用 webpack 的DllPlugin单独打包，然后打包业务代码并用DllReferencePlugin关联第三方库
   
   操作：1、单独新建一个DllPlugin的config文件，配置对应的output、entry、plugins，然后运行webpack打包此config文件
         
