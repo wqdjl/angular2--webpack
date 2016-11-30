@@ -17,9 +17,7 @@
 参考： https://segmentfault.com/a/1190000006863968
 
 ##打包输出模板文件
- 1、"templateUrl:'XXX.html'" change to "template:require('XXX.html')", 注：ts不支持require，需要安装‘ npm i --save-dev @types/node’,
-
-     or template replace templateUrl;
+ 1、"templateUrl:'XXX.html'" change to "template:require('XXX.html')", 注：ts不支持require，需要安装‘ npm i --save-dev @types/node’,or template replace templateUrl;
  
  2、install loader “angular2-template-loader html-loader”. '.ts' loader change to "loaders: ['awesome-typescript-loader', 'angular2-template-loader']"
  
