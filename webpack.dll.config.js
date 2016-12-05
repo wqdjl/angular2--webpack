@@ -37,7 +37,13 @@ module.exports = {
         library: '[name]',
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin(
+           {
+                compress:true,
+                mangle:true,
+                comments:false
+           }
+        ),
         new ExtractTextPlugin('[name].css'),
         new webpack.DllPlugin({
             path: './dll/manifest.json',//是 manifest.json 文件的输出路径，这个文件会用于后续的业务代码打包；
