@@ -27,7 +27,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-                loader: 'file?name=assets/[name].[hash].[ext]'
+                loader: 'url?limit=8192&name=assets/[name].[hash].[ext]'//file?name=assets/[name].[hash].[ext]'//!url?limit=8192&name=assets/[name].[hash].[ext]' 
             },
         ]
     },
@@ -38,11 +38,11 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin(
-           {
-                compress:true,
-                mangle:true,
-                comments:false
-           }
+            {
+                compress: true,
+                mangle: true,
+                comments: false
+            }
         ),
         new ExtractTextPlugin('[name].css'),
         new webpack.DllPlugin({
