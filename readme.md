@@ -63,7 +63,6 @@
 ## 压缩js文件
  1、use webpack.optimize.UglifyJsPlugin() compress js file
 
- 2、use webpack.optimize.CommonsChunkPlugin({name:['入口文件1',...],file:'输出文件，忽略则以name为输出文件的名字'}) ,提取公共文件
 
 ## how to become a globlal var 
  1、use webpack.ProviderPlugin.
