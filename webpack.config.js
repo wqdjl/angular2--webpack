@@ -54,7 +54,7 @@ let config = {
         
         new ExtractTextPlugin('style.[hash].css'),
         new HtmlWebpackPlugin({
-            template: 'src/index.html'
+            template: 'build/index.html'
         }),
         new webpack.optimize.UglifyJsPlugin(),
         // new webpack.optimize.CommonsChunkPlugin({

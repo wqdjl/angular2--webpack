@@ -32,7 +32,7 @@ module.exports = {
         ]
     },
     output: {
-        path: 'build',
+        path: 'dist/dll',
         filename: '[name].js',
         library: '[name]',
     },
@@ -44,6 +44,11 @@ module.exports = {
                 comments: false
             }
         ),
+          new HtmlWebpackPlugin({
+            template: 'src/index.html',
+            filename:'../../build/index.html',
+            inject:'head'
+        }),
         new ExtractTextPlugin('[name].css'),
         new webpack.DllPlugin({
             path: './dll/manifest.json',//是 manifest.json 文件的输出路径，这个文件会用于后续的业务代码打包；

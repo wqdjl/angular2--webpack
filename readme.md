@@ -1,4 +1,22 @@
 #webpack package
+
+##如何运行demo
+   1、首次运行 npm i //安装npm包
+              
+              npm run webpack:dll //编译固定第三方插件
+
+              npm run dev //使用webpack-dev-server 运行
+   2、后续运行
+      如果只修改了业务代码 
+      
+      npm run dev
+
+      如果引用了第三方 
+
+        npm run webpack:dll //编译固定第三方插件
+
+        npm run dev //使用webpack-dev-server 运行
+
 ##basic knowledge
 ###entry —— 入口文件配置
  1、单入口 entry:"***.js";
